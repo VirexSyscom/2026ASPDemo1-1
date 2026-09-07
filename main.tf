@@ -17,7 +17,7 @@ locals {
     nat_pip        = "${local.prefix}nat-pip"
     nat_gateway    = "${local.prefix}SpokeHRNatGW"
     bastion        = "${local.prefix}Spoke-VNET-bastion"
-    bastion_pip    = "${local.prefix}Spoke-VNET-bastion-pip"
+#   bastion_pip    = "${local.prefix}Spoke-VNET-bastion-pip"
     alert_nsg_write = "${local.prefix}Create or Update Network Security Group Alert"
     alert_nsg_delete = "${local.prefix}Delete Network Security Group Alert"
 
@@ -281,18 +281,18 @@ resource "azurerm_subnet_nat_gateway_association" "db" {
 # Bastion - Spoke-VNET-bastion
 ############################################
 
-resource "azurerm_public_ip" "bastion" {
-  name                = local.name.bastion_pip
-  location            = local.rg_location
-  resource_group_name = local.rg_name
-  allocation_method   = "Static"
-  sku                 = "Standard"
-
-  tags = merge(local.common_tags, {
-    ResourceType = "PublicIP"
-    Purpose      = "Bastion"
-  })
-}
+# resource "azurerm_public_ip" "bastion" {
+# name                = local.name.bastion_pip
+# location            = local.rg_location
+# resource_group_name = local.rg_name
+# allocation_method   = "Static"
+# sku                 = "Standard"
+#
+# tags = merge(local.common_tags, {
+#   ResourceType = "PublicIP"
+#   Purpose      = "Bastion"
+# })
+#}
 
 resource "azurerm_bastion_host" "spoke" {
   name                = local.name.bastion
