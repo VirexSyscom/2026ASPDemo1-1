@@ -12,7 +12,7 @@ name_separator = "-"
 location       = "japaneast"
 location_short = "jpe"
 
-resource_group_name   = "rg-hr-spoke-network-jpe"
+resource_group_name   = "spoke-network-rg"
 create_resource_group = true
 
 ############################################
