@@ -5,7 +5,7 @@
 variable "name_prefix" {
   description = "所有資源名稱的前綴詞，例如 hr、corp、contoso。留空則不加前綴。"
   type        = string
-  default     = "hr"
+  default     = "demo"
 
   validation {
     condition     = can(regex("^[a-zA-Z0-9-]*$", var.name_prefix))
